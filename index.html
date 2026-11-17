@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل المواطن – قائممقامية قضاء الكرمة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--navy:#0B2545;--em:#0F6B4F;--gold:#B8924A;--bg:#F3F5F8;--card:#fff;--tx:#1b2433;--mu:#5b667a;--bd:#dde3ec;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1420;--card:#16202f;--tx:#e8edf5;--mu:#9aa6ba;--bd:#27344a;--navy:#0a1a33;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:Cairo,Tajawal,sans-serif;background:var(--bg);color:var(--tx);margin:0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px}
+.mu{color:var(--mu)}
+.btn{background:var(--em);color:#fff;border-radius:10px;padding:.5rem 1rem;font-weight:600;cursor:pointer}
+.btn:focus-visible,.tab:focus-visible,.office:focus-visible,input:focus-visible,.chip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.tab{padding:.6rem 1rem;border-radius:10px;border:1px solid var(--bd);background:var(--card);font-weight:600;cursor:pointer}
+.tab[aria-selected=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chip{padding:.3rem .8rem;border-radius:99px;border:1px solid var(--bd);background:var(--card);cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--em);color:#fff;border-color:var(--em)}
+.office{display:block;width:100%;text-align:right;padding:.8rem 1rem;border:1px solid var(--bd);border-right:5px solid var(--gold);border-radius:10px;background:var(--card);cursor:pointer}
+.office:hover{border-right-color:var(--em)}
+.step{position:relative;padding:0 3.2rem .6rem 0}
+.step::before{content:"";position:absolute;right:1.1rem;top:2.2rem;bottom:-.4rem;width:2px;background:var(--bd)}
+.step:last-child::before{display:none}
+.num{position:absolute;right:0;top:0;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800}
+dialog{border:none;border-radius:16px;padding:0;max-width:640px;width:calc(100% - 24px);background:var(--card);color:var(--tx)}
+dialog::backdrop{background:rgba(5,12,25,.6)}
+@media (prefers-reduced-motion:no-preference){dialog[open]{animation:pop .2s ease-out}@keyframes pop{from{transform:translateY(12px);opacity:0}}}
+</style>
+</head>
+<body>
+<header style="background:var(--navy);color:#fff">
+ <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-2">
+  <div class="font-extrabold">دليل المواطن · قائممقامية الكرمة</div>
+  <nav class="flex gap-4 text-sm"><a href="#how">آلية الطلب</a><a href="#map">خريطة البناية</a><a href="#dir">الشعب والخدمات</a></nav>
+ </div>
+</header>
+
+<section style="background:linear-gradient(180deg,var(--navy),#123a5e);color:#fff">
+ <div class="max-w-5xl mx-auto px-4 py-10">
+  <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">اعرف أين تذهب، ومن تقابل، قبل أن تدخل البناية</h1>
+  <p class="mt-3 max-w-2xl" style="color:#cfd9e8">المرجع الرسمي لتبسيط إجراءات المراجعين في ديوان قائممقامية قضاء الكرمة – محافظة الأنبار.</p>
+  <label for="q" class="block mt-6 font-semibold">ابحث عن خدمة</label>
+  <input id="q" type="search" autocomplete="off" placeholder="مثال: تأييد سكن، تعويضات، عقد زراعي، تصريح أمني" class="w-full mt-2 rounded-xl px-4 py-3 text-slate-900">
+  <div id="res" class="mt-3 grid gap-2" aria-live="polite"></div>
+ </div>
+</section>
+
+<main class="max-w-5xl mx-auto px-4 py-8 space-y-12">
+
+<section class="card p-5 flex flex-wrap gap-4 items-start">
+ <div class="flex-1 min-w-[240px]">
+  <div class="mu text-sm">السيد قائممقام قضاء الكرمة</div>
+  <h2 class="text-xl font-extrabold">رواد أحمد عبد الله</h2>
+  <p class="mt-2 mu">مكتبه في الطابق الأول – الجناح الأول، ويتولى ثماني مهام تخص خدمة المواطنين وإدارة القضاء.</p>
+  <button class="btn mt-3" onclick="openD('d1')">عرض المهام الثماني</button>
+ </div>
+ <div class="rounded-xl p-4 flex-1 min-w-[240px]" style="border:2px solid var(--gold)">
+  <div class="font-extrabold">استقبال ذوي الهمم وأصحاب الاحتياجات الخاصة</div>
+  <p class="mu mt-1">خُصص للسيد القائممقام مكتب في الطابق الأرضي لاستقبالهم، دون الحاجة إلى صعود الدرج.</p>
+ </div>
+</section>
+
+<section id="how">
+ <h2 class="text-2xl font-extrabold mb-4">كيف يُنجز طلبك: ثماني خطوات</h2>
+ <div class="card p-5" id="steps"></div>
+</section>
+
+<section id="map">
+ <h2 class="text-2xl font-extrabold mb-4">خريطة البناية</h2>
+ <div class="flex flex-wrap gap-2 mb-4" role="tablist" id="tabs"></div>
+ <div id="floor" class="grid gap-2 md:grid-cols-2"></div>
+</section>
+
+<section id="dir">
+ <h2 class="text-2xl font-extrabold mb-4">الشعب والخدمات</h2>
+ <div class="flex flex-wrap gap-2 mb-4" id="chips"></div>
+ <div id="cards" class="grid gap-3 sm:grid-cols-2"></div>
+</section>
+</main>
+
+<footer style="background:var(--navy);color:#cfd9e8" class="mt-8">
+ <div class="max-w-5xl mx-auto px-4 py-5 text-sm">ديوان قائممقامية قضاء الكرمة – محافظة الأنبار<br>إعداد ومتابعة: شعبة تكنولوجيا المعلومات – لجنة تبسيط الإجراءات</div>
+</footer>
+
+<dialog id="dlg"><div class="p-5" id="dbody"></div></dialog>
+
+<script>
+const G='الطابق الأرضي',A='الطابق الأول – الجناح الأول',B='الطابق الأول – الجناح الثاني';
+const D=[
+{id:'d1',n:'مكتب السيد قائممقام قضاء الكرمة',loc:A+' (ومكتب خاص لذوي الهمم في '+G+')',fl:'a',head:'السيد رواد أحمد عبد الله',s:['استقبال المواطنين والوقوف على احتياجاتهم وتلبية طلباتهم.','استقبال السادة مدراء الدوائر ومسؤولي الشعب.','رئاسة الاجتماعات الدورية.','استقبال ذوي الهمم وأصحاب الاحتياجات الخاصة في المكتب المخصص بالطابق الأرضي.','توجيه الكتب الرسمية وطلبات المواطنين إلى دوائر القضاء والشعب.','تهميش وتوقيع الكتب الرسمية وطلبات المواطنين.','التوجيه الفوري لحل مشاكل المواطنين والحفاظ على البنى التحتية في حال وقوع الكوارث البيئية.','حل النزاعات بين المواطنين.']},
+{id:'d2',n:'مكتب تعويضات الكرمة',loc:G,fl:'g',head:'علي صالح مجول',s:['استقبال المواطنين أصحاب الدور والممتلكات المتضررة نتيجة الأعمال الإرهابية سنة 2014.','توجيه المواطن للطريق الصحيح لإكمال إجراءات معاملة التعويض.','توجيه الموظفين للكشف عن الممتلكات المتضررة.','تقييم نسبة ضرر الممتلكات.','توجيه الكتب الرسمية للدوائر المعنية بتعويض المتضررين.','إكمال إجراءات معاملة التعويض وإرسالها للجهات المختصة للنظر وصرف التعويض.','استلام وتسليم صكوك التعويض للمواطنين.']},
+{id:'d3',n:'الشعبة الإدارية',loc:A,fl:'a',head:'جلال كردي عباس',alt:'كريم عبيد عودة',s:['إعداد الكتب الرسمية بناءً على طلب المواطن أو الكتب الصادرة من دوائر الدولة.','تقديم خدمات معاملات إيصال التيار الكهربائي والماء الصافي.','إنجاز معاملات التعويض للمواطنين.','إنجاز تأييد السكن للمواطنين.','إنجاز مضبطة إثبات شخصية للمواطنين.','إنجاز معاملات إبرام وتجديد العقود الزراعية.','إنجاز معاملات تثبيت الحدود للأراضي الزراعية.']},
+{id:'d4',n:'شعبة المعاقين',loc:A,fl:'a',head:'محمد إبراهيم عبد',alt:'سيف صلاح علي',s:['استقبال المواطنين المعاقين وذوي الاحتياجات الخاصة وأصحاب الأمراض المزمنة.','عمل قاعدة بيانات للمعاقين كلاً حسب العوق أو المرض المزمن.','تثبيت رقم هاتف كل معاق لدى الشعبة وإعطاؤهم رقم هاتف مسؤول الشعبة أو من ينوب عنه.','التواصل مع ذوي الاحتياجات الخاصة هاتفياً أو عبر شعبة الإعلام إذا استوجب حضورهم لأمر ما.']},
+{id:'d5',n:'الشعبة الهندسية وشؤون المرأة',loc:A,fl:'a',head:'نازنين علي مراد',alt:'هيثم أحمد كنوش',s:['إعداد خطط القضاء (تنمية الأقاليم وصندوق إعادة الإعمار) بالتنسيق مع الدوائر الخدمية وتدقيق متطلبات الإدراج.','المشاركة في دوائر المهندس المقيم ومتابعة المواصفات الهندسية.','إعداد الكشوفات الهندسية والتصاميم لمشاريع الإدارة المحلية.','الإشراف على تنفيذ مشاريع الإدارة المحلية.','متابعة أعمال المنظمات لترميم دور المواطنين.','متابعة تنفيذ توجيهات محافظة الأنبار وإعمامها للنواحي والدوائر.','إصدار الكتب والإجابات على البريد الوارد من المحافظة والدوائر.','المشاركة في لجان حل المنازعات بين المواطنين على حدود الأراضي.','التنسيق بين النواحي والدوائر الخدمية لتقديم أفضل الخدمات.','حضور الاجتماعات الدورية للسيد القائممقام والالتزام بالتوجيهات.']},
+{id:'d6',n:'شعبة تقويم الأداء / الحاسبة (الطابعة)',loc:A,fl:'a',head:'إدريس سليمان ناهي',alt:'ضياء حسين أحمد',s:['متابعة عمل الموظفين لتسهيل أمور المواطنين.','تقديم الشكر والإشادة بالموظف المسؤول والملتزم بالدوام الرسمي.','طباعة الكتب الخاصة للمواطنين.','طباعة كتب الشكر والتقدير.','طباعة جميع الكتب الرسمية الخاصة بالموظفين.','طباعة الكتب الرسمية للدوائر كافة.']},
+{id:'d7',n:'شعبة شؤون المواطنين / الأرشيف (ورقي / إلكتروني)',loc:A,fl:'a',head:'كريم عبيد عودة',alt:'محمد جاسم حمود',s:['التواصل مع المواطنين لتقديم الخدمات بالتنسيق مع السيد القائممقام ومتابعة طلباتهم مع الدوائر الرسمية.','التواصل مع مختاري القضاء لإيصال طلبات المواطنين.','إعطاء الأولوية لكبار السن وأصحاب الهمم وذوي الاحتياجات الخاصة.','تصدير الكتب الرسمية لكافة الدوائر.','أرشفة الكتب الرسمية (ورقي/إلكتروني) لكافة الدوائر.']},
+{id:'d8',n:'شعبة تكنولوجيا المعلومات',loc:B,fl:'b',head:'عمار هاشم نمر',s:['الإشراف والمتابعة على التحول الرقمي في كافة دوائر القضاء وتقديم الاستشارات والدعم الفني.','الإشراف على الأرشفة الإلكترونية.','إرسال واستلام البريد الإلكتروني.','الإشراف على ملفات الموظفين.','توجيه الكتب الرسمية الخاصة بالشعبة.','تقديم الدعم الإداري والفني والاستشارات الإلكترونية لكافة شعب القائممقامية.','إعداد ومتابعة دليل المواطن في ديوان قائممقامية قضاء الكرمة حسب توجيهات لجنة تبسيط الإجراءات في ديوان محافظة الأنبار.','تقديم الدعم الفني وإعداد منهاج المؤتمرات.']},
+{id:'d9',n:'شعبة الاستشارات والخدمات (الاستشارات الهندسية)',loc:B,fl:'b',head:'هشام صباح خلف',alt:'مصطفى مشرف شمر',s:['تقديم الاستشارات الهندسية لضمان جودة الأعمال المدنية والهندسية في المشاريع التي تقام داخل قضاء الكرمة.']},
+{id:'d10',n:'شعبة الجودة الشاملة',loc:B,fl:'b',head:'مصطفى داود سلمان',alt:'ميثم سالم كردي',s:['متابعة لجنة تقصي الإبداع يوم الوظيفة الوطني لاختيار الموظف الجيد.','متابعة نصب عدادات الطاقة الكهربائية ومقياس الأجهزة الكهربائية للمواطنين لتقليل الاستهلاك.','رفع تقارير دورية عن الدور الحكومية ودور المواطنين التي تم نصب عدادات فيها.','متابعة إجراءات الطاقة النظيفة وتقليل الانبعاث والتلوث البيئي.','متابعة إجراءات التشجير وزيادة المساحات الخضراء.','متابعة إجراءات العزل الحراري للأبنية الحكومية.']},
+{id:'d11',n:'شعبة الأملاك والاستثمار',loc:B,fl:'b',head:'محمد منعم حمد',alt:'علي حسين عبيد سليمان',s:['إدارة الأملاك التابعة للإدارة المحلية.','متابعة الإيجارات العائدة لدور الإدارة المحلية.','متابعة شؤون دور واطئة الكلفة.','متابعة شؤون معامل الجص والحصو.']},
+{id:'d12',n:'شعبة التصاريح الأمنية',loc:B,fl:'b',head:'عبد الرحمن جبير علي',alt:'علي حسين عبيد',s:['إصدار التصاريح الأمنية للموظفين.','إصدار التصاريح الأمنية للمواطنين.','عمل سلامة الموقف الأمني للمواطنين.','عمل سلامة الموقف الأمني للمتقاعدين.']},
+{id:'d13',n:'الشعبة القانونية',loc:B,fl:'b',head:'علي صالح مجول',alt:'محمد منعم حمد',s:['الترافع عن السيد المحافظ في حال تقديم دعاوى ضده.','فض النزاعات بين المواطنين.','عمل الإنذارات للمتجاوزين.','تثبيت العقود الزراعية للمواطنين.','تشكيل الأوامر الإدارية الخاصة بعمل القائممقامية من الجانب القانوني.']},
+{id:'d14',n:'شعبة الشؤون المالية',loc:B,fl:'b',head:'قتيبة ماجد عبد',alt:'باسم عادي مخلف',s:['متابعة رواتب الموظفين والعلاوات والترفيعات.'],partial:1},
+{id:'d15',n:'شعبة المولدات الأهلية',loc:B,fl:'b',head:'نهاد وادي شحاذة',alt:'صباح محمد محمود',s:['متابعة عمل المولدات الأهلية في القضاء.','وضع التسعيرة المقررة من اللجنة بعد جرد العدادات في نهاية كل شهر.','الإشراف على عمل المحطة من خلال توزيع مادة زيت الغاز.','وضع صندوق للشكاوى المقدمة من قبل المواطنين وتخصيص رقم هاتف لهذه الشكاوى لغرض تبسيط الإجراءات للمواطن.']},
+{id:'d18',n:'شعبة الإعلام',loc:B,fl:'b',head:'صباح محمد محمود',alt:'أحمد علي محمد نوفل',s:['مواكبة الأحداث ومرافقة السيد القائممقام أثناء جولاته الميدانية ومتابعة عمل المشاريع في القضاء.','نشر وتوثيق النشاطات التي تقوم بها الحكومة المحلية في القضاء والتواصل مع قسم الإعلام والاتصال الحكومي في المحافظة.','تخصيص صندوق ورقم هاتف للشكاوى من أجل تبسيط الإجراءات المقدمة للمواطن.']},
+{id:'d16',n:'شعبة المنظمات',loc:B,fl:'b',head:'أحمد عبد خلف',alt:'قيس حماد نجم',s:['دعم النازحين والعائدين ومتابعة متطلباتهم القانونية والإنسانية.','مساعدة العوائل الفقيرة والتنسيق بين المنظمات والجهات المستفيدة من الفقراء وإيصال المساعدات لهم.','إنشاء قاعدة بيانات تضم العوائل الفقيرة والعوائل العائدة من المخيمات والتي ما تزال موجودة في المخيمات.']},
+{id:'d17',n:'شعبة حقوق الإنسان',loc:B,fl:'b',head:'عماد نافع عباس',alt:'إبراهيم حامد حسن',s:['المقابر الجماعية والبحث عن جميع المقابر التي حدثت أثناء احتلال داعش.','شؤون النازحين وتجارة البشر والاهتمام بشريحة النازحين وتوفير المساعدات اللازمة لهذه الشريحة.','التعريف بمخاطر المخدرات والاتجار بها لما لها من مخاطر على المجتمع وتوفير البيئة المناسبة للحد من هذه الظاهرة المدمرة.','الاعتناء بشريحة عوائل الشهداء والجرحى والسجون والمعتقلات وإظهار المعاناة التي تتعرض لها هذه الشرائح وتوفير الخدمات لها.']},
+{id:'d19',n:'شعبة المتابعة',loc:'الموقع غير محدد بعد',fl:'x',head:'حسام عنيد رشيد',s:[],partial:1}
+];
+const steps=[['التوجه لشعبة الإدارة','يتوجه المواطن إلى شعبة الإدارة حاملاً مستمسكاته الشخصية ويشرح مطلبه لمسؤول الشعبة.'],['صياغة الطلب أو التوجيه','يكتب مسؤول شعبة الإدارة الطلب بناءً على إفادة المواطن أو يوجهه إلى الشعبة المختصة.'],['الرفع للتهميش','يُرفع الطلب إلى السيد القائممقام لغرض التهميش.'],['طباعة الكتاب الرسمي','يُطبع الكتاب استناداً لتوجيه السيد القائممقام ويُحوَّل لشعبة الإدارة أو الشعبة المختصة للتهميش.'],['التوقيع النهائي','يُحوَّل الكتاب مع الأوليات (الطلب + المستمسكات) إلى السيد القائممقام لغرض التوقيع.'],['التصدير (الصادر والوارد)','يُحوَّل الكتاب إلى شعبة الصادر والوارد لتصديره وإعطائه رقماً وتاريخاً.'],['الختم الرسمي','يُحوَّل الكتاب إلى شعبة الإدارة ليُختم بالختم الرسمي.'],['التسليم','يُسلَّم الكتاب بيد المواطن مباشرة أو يُرسل إلى الدائرة المعنية.']];
+const floors={g:G,a:A,b:B};
+const $=s=>document.querySelector(s);
+const byId=id=>D.find(d=>d.id===id);
+const h=(t,c='')=>`<span class="${c}">${t}</span>`;
+
+$('#steps').innerHTML=steps.map((s,i)=>`<div class="step"><div class="num">${i+1}</div><div class="font-extrabold">${s[0]}</div><p class="mu mb-3">${s[1]}</p></div>`).join('');
+
+let fl='a';
+function renderTabs(){
+ $('#tabs').innerHTML=Object.entries(floors).map(([k,v])=>`<button class="tab" role="tab" aria-selected="${k===fl}" data-f="${k}">${v}</button>`).join('');
+ $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{fl=b.dataset.f;renderTabs()});
+ let list=D.filter(d=>d.fl===fl);
+ let extra=fl==='g'?`<div class="card p-4 md:col-span-2" style="border:2px solid var(--gold)"><b>مكتب استقبال ذوي الهمم</b><div class="mu">مكتب السيد القائممقام المخصص لاستقبال ذوي الهمم وأصحاب الاحتياجات الخاصة.</div></div>`:'';
+ $('#floor').innerHTML=extra+list.map(d=>`<button class="office" onclick="openD('${d.id}')"><b>${d.n}</b><div class="mu text-sm">${d.head?'المسؤول: '+d.head:'التفاصيل غير مكتملة'}</div></button>`).join('');
+}
+renderTabs();
+
+const chips=[['all','الكل'],['g','الطابق الأرضي'],['a','الجناح الأول'],['b','الجناح الثاني']];
+let cf='all';
+function renderCards(){
+ $('#chips').innerHTML=chips.map(c=>`<button class="chip" aria-pressed="${c[0]===cf}" data-c="${c[0]}">${c[1]}</button>`).join('');
+ $('#chips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{cf=b.dataset.c;renderCards()});
+ $('#cards').innerHTML=D.filter(d=>cf==='all'||d.fl===cf).map(d=>`<div class="card p-4 flex flex-col"><b>${d.n}</b><div class="mu text-sm mt-1">${d.loc}</div><div class="mt-1 text-sm">${d.head?'المسؤول: '+d.head:''}</div><button class="btn mt-3 self-start" onclick="openD('${d.id}')">عرض التفاصيل والخدمات</button></div>`).join('');
+}
+renderCards();
+
+function openD(id){
+ const d=byId(id);
+ $('#dbody').innerHTML=`<h3 class="text-xl font-extrabold">${d.n}</h3>
+ <dl class="mt-3 grid gap-1 text-sm"><div><b>الموقع:</b> ${d.loc}</div>${d.head?`<div><b>${id==='d1'?'القائممقام':'مسؤول الشعبة'}:</b> ${d.head}</div>`:''}${d.alt?`<div><b>الموظف البديل:</b> ${d.alt}</div>`:''}</dl>
+ ${d.s.length?`<h4 class="font-extrabold mt-4 mb-1">الخدمات</h4><ol class="list-decimal pr-6 space-y-1">${d.s.map(x=>`<li>${x}</li>`).join('')}</ol>`:''}
+ ${d.partial?`<p class="mt-4 p-3 rounded-lg" style="background:rgba(184,146,74,.15)">بيانات هذه الشعبة غير مكتملة في النص المزوَّد، وستُضاف عند توفرها.</p>`:''}
+ <button class="btn mt-5" onclick="$('#dlg').close()">إغلاق</button>`;
+ $('#dlg').showModal();
+}
+$('#dlg').addEventListener('click',e=>{if(e.target.id==='dlg')e.target.close()});
+
+const kw={'مولدات':['d15'],'مولدة':['d15'],'شكو':['d15','d18'],'إعلام':['d18'],'حقوق':['d17'],'نازح':['d16','d17'],'مخدرات':['d17'],'شهداء':['d17'],'مقابر':['d17'],'منظمات':['d16'],'ترميم':['d5','d16'],'معاق':['d4'],'همم':['d1','d4']};
+const norm=s=>s.replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/[\u064B-\u0652]/g,'');
+$('#q').addEventListener('input',e=>{
+ const q=norm(e.target.value.trim());
+ if(q.length<2){$('#res').innerHTML='';return}
+ let hits=D.filter(d=>norm(d.n+' '+d.s.join(' ')).includes(q));
+ Object.entries(kw).forEach(([k,ids])=>{if(norm(k).includes(q)||q.includes(norm(k)))ids.forEach(i=>{const d=byId(i);if(!hits.includes(d))hits.push(d)})});
+ $('#res').innerHTML=hits.length?hits.slice(0,6).map(d=>`<button class="card p-3 text-right" style="color:var(--tx)" onclick="openD('${d.id}')"><b>${d.n}</b><div class="mu text-sm">${d.loc}${d.head?' · '+d.head:''}</div></button>`).join(''):'<div class="p-3 rounded-xl" style="background:rgba(255,255,255,.12)">لا توجد نتيجة. جرّب كلمة أخرى أو توجه إلى شعبة الإدارة.</div>';
+});
+</script>
+</body>
+</html>
